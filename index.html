@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الستون الذهبية — المجال الأول (المعرفة المهنية)</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+:root{--bg:#f6f1e7;--card:#fffdf8;--card2:#fff8ee;--line:#e8dcc8;--text:#1e293b;--muted:#6b7280;
+--navy:#0f1c3f;--gold:#b8860b;--accent:#0B7A64;--accent2:#c9a227;
+--good:#16a34a;--bad:#dc2626;--warn:#ca8a04;--skip:#64748b;
+--font:Tajawal,system-ui,sans-serif;--fs:16px;--radius:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);font-size:var(--fs);color:var(--text);min-height:100vh;
+background:radial-gradient(800px 400px at 100% 0%,#c9a22733,transparent),var(--bg)}
+button,input,select{font-family:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+header.app{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#0f1c3f,#1e3a5f 60%,#0B7A64);color:#fff;border-bottom:1px solid #ffffff22}
+header .inner{max-width:980px;margin:0 auto;padding:12px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+header h1{margin:0;font-size:1.05rem} header p{margin:0;opacity:.9;font-size:.8rem}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav button,.btn{border:1px solid #fff3;background:#fff1;color:#fff;border-radius:12px;padding:9px 12px;cursor:pointer;font-weight:600}
+.nav button:hover,.btn:hover{background:#fff3}
+.nav button.active,.btn.primary{background:var(--accent2);border-color:#e6c35c;color:#1a1400}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:0 10px 24px #0001}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:700px){.grid3{grid-template-columns:1fr 1fr}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.35rem;color:var(--navy)}
+.muted{color:var(--muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+select,input[type=number]{background:#fff;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 10px}
+.hidden{display:none!important}
+.qtext{font-size:1.12em;line-height:1.85;margin:0 0 12px;font-weight:700;color:var(--navy)}
+.options{display:grid;gap:9px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.opt:hover{border-color:var(--accent2)}
+.opt.selected{border-color:var(--accent);background:#ecfdf5}
+.opt .key{min-width:28px;height:28px;border-radius:8px;background:#f1e9d6;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy)}
+.map{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+.map button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--text);cursor:pointer;font-size:.78rem}
+.map button.cur{outline:2px solid var(--accent2)}
+.map button.ok{background:#dcfce7;border-color:var(--good)}
+.map button.bad{background:#fee2e2;border-color:var(--bad)}
+.map button.time{background:#fef3c7;border-color:var(--warn)}
+.map button.skip{background:#e2e8f0;border-color:var(--skip)}
+.timer{font-weight:700;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.timer.warn{background:#fee2e2;border-color:var(--bad);animation:pulse .55s infinite alternate}
+@keyframes pulse{from{opacity:1}to{opacity:.7}}
+.flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:1000px;height:210px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s;border-radius:14px}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:12px;border:1px solid var(--line);overflow:auto;font-size:.9em}
+.face.front{background:#fff}
+.face.back{background:#ecfdf5;transform:rotateY(180deg)}
+.face h4{margin:0 0 6px;color:var(--accent);font-size:.8rem}
+.chip{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;background:#f1e9d6;color:#6b4f0b}
+footer{text-align:center;color:var(--muted);padding:18px;font-size:.9rem}
+#cert{width:900px;padding:36px;background:#fff;color:#0f172a;font-family:Cairo,sans-serif}
+.fb{margin-top:12px;padding:12px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:.92em}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="inner">
+    <div>
+      <h1>الستون الذهبية — المجال الأول</h1>
+      <p>60 سؤالًا · المعرفة المهنية · محاكاة · بطاقات · JSON · شهادة 55٪</p>
+    </div>
+    <div class="nav">
+      <button type="button" data-view="home" class="active">الرئيسية</button>
+      <button type="button" data-view="exam">المحاكاة</button>
+      <button type="button" data-view="cards">البطاقات</button>
+      <button type="button" data-view="bank">البنك</button>
+      <button type="button" data-view="settings">الإعدادات</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<section id="view-home">
+  <div class="card" style="background:linear-gradient(135deg,#0f1c3f,#1e3a5f);color:#fff;border:none">
+    <div class="chip" style="background:#c9a22733;color:#fde68a">60 سؤالًا · المجال الأول — المعرفة المهنية</div>
+    <h2 style="margin:10px 0 6px">الستون الذهبية لأسئلة المجال الأول</h2>
+    <p style="opacity:.9;margin:0">بنك تفاعلي متوافق مع معايير هيئة تقويم التعليم والتدريب، مع مؤقت وخريطة وبطاقات وشهادة.</p>
+    <div class="grid3" style="margin-top:14px">
+      <div class="stat"><b>60</b><span class="muted">سؤالًا</span></div>
+      <div class="stat"><b>55٪</b><span class="muted">درجة الاجتياز</span></div>
+      <div class="stat"><b>1</b><span class="muted">مجال</span></div>
+    </div>
+    <div class="toolbar" style="margin-top:14px">
+      <button class="btn primary" type="button" id="btnStart60">بدء الاختبار — 60 سؤالًا</button>
+      <button class="btn" type="button" id="btnStart40" style="color:#1e293b;border-color:var(--line);background:#fff">40 سؤالًا</button>
+      <button class="btn" type="button" id="btnStart20" style="color:#1e293b;border-color:var(--line);background:#fff">20 سؤالًا</button>
+      <button class="btn" type="button" id="btnShuffle" style="color:#1e293b;border-color:var(--line);background:#fff">خلط</button>
+      <button class="btn" type="button" id="btnExportBankHome">تصدير JSON</button>
+      <label class="btn" style="cursor:pointer">استيراد JSON<input type="file" id="importFileHome" accept=".json,application/json" hidden></label>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">إعداد سريع</h3>
+    <div class="toolbar">
+      <label class="muted">الخط <select id="fontHome"><option>Tajawal</option><option>Cairo</option><option>Amiri</option></select></label>
+      <button class="btn" type="button" data-fs="14" style="color:#1e293b;border-color:var(--line);background:#fff">صغير</button>
+      <button class="btn" type="button" data-fs="16" style="color:#1e293b;border-color:var(--line);background:#fff">وسط</button>
+      <button class="btn" type="button" data-fs="18" style="color:#1e293b;border-color:var(--line);background:#fff">كبير</button>
+      <label class="muted"><input type="checkbox" id="soundHome" checked> صوت التنبيه</label>
+    </div>
+    <p class="muted" style="margin-top:8px">إعداد المهندس سمير حبيب بنتن · المصدر: samirbantan.github.io/60Golden-Domain1</p>
+  </div>
+</section>
+
+<section id="view-exam" class="hidden">
+  <div class="card">
+    <div class="toolbar" style="justify-content:space-between">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <span class="timer" id="timer">60</span>
+        <span class="muted" id="qProgress">—</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button class="btn" type="button" id="btnAminus" style="color:#1e293b;border-color:var(--line);background:#fff">A−</button>
+        <button class="btn" type="button" id="btnAplus" style="color:#1e293b;border-color:var(--line);background:#fff">A+</button>
+        <button class="btn" type="button" id="btnTTS" style="color:#1e293b;border-color:var(--line);background:#fff">🔊 قراءة</button>
+        <button class="btn" type="button" id="btnCopy" style="color:#1e293b;border-color:var(--line);background:#fff">نسخ</button>
+      </div>
+    </div>
+    <div class="map" id="qMap"></div>
+    <div id="qBox"></div>
+    <div class="toolbar" id="navBottom" style="margin-top:16px;justify-content:center;gap:10px">
+      <button class="btn" type="button" id="btnPrev" style="color:#1e293b;border-color:var(--line);background:#fff;min-width:100px">السابق</button>
+      <button class="btn primary" type="button" id="btnNext" style="min-width:100px">التالي</button>
+      <button class="btn" type="button" id="btnFinish" style="color:#1e293b;border-color:var(--line);background:#fff;min-width:100px">إنهاء</button>
+      <button class="btn" type="button" id="btnHomeExam" style="color:#1e293b;border-color:var(--line);background:#fff;min-width:100px">الرئيسية</button>
+    </div>
+  </div>
+  <div class="card hidden" id="resultBox"></div>
+</section>
+
+<section id="view-cards" class="hidden">
+  <div class="card">
+    <div class="toolbar">
+      <button class="btn primary" type="button" id="btnRefreshCards">تحديث البطاقات</button>
+      <button class="btn" type="button" id="btnHomeCards" style="color:#1e293b;border-color:var(--line);background:#fff">الرئيسية</button>
+    </div>
+    <p class="muted" id="cardsInfo"></p>
+    <div class="flip-grid" id="cardsGrid"></div>
+  </div>
+</section>
+
+<section id="view-bank" class="hidden">
+  <div class="card">
+    <h3 style="margin-top:0">إدارة البنك</h3>
+    <p class="muted" id="bankInfo"></p>
+    <div class="toolbar">
+      <button class="btn primary" type="button" id="btnExportBank">تصدير JSON</button>
+      <button class="btn" type="button" id="btnExportSession" style="color:#1e293b;border-color:var(--line);background:#fff">تصدير الجلسة</button>
+      <label class="btn" style="cursor:pointer;color:#1e293b;border-color:var(--line);background:#fff">استيراد<input type="file" id="importFile" accept=".json,application/json" hidden></label>
+    </div>
+    <div id="bankPreview" class="muted" style="max-height:360px;overflow:auto;font-size:.9rem"></div>
+  </div>
+</section>
+
+<section id="view-settings" class="hidden">
+  <div class="card">
+    <h3 style="margin-top:0">الإعدادات</h3>
+    <div class="toolbar">
+      <label>الخط <select id="fontSel"><option>Tajawal</option><option>Cairo</option><option>Amiri</option></select></label>
+      <button class="btn" type="button" data-fs="14" style="color:#1e293b;border-color:var(--line);background:#fff">صغير</button>
+      <button class="btn" type="button" data-fs="16" style="color:#1e293b;border-color:var(--line);background:#fff">وسط</button>
+      <button class="btn" type="button" data-fs="18" style="color:#1e293b;border-color:var(--line);background:#fff">كبير</button>
+      <label><input type="checkbox" id="soundSel" checked> صوت التنبيه</label>
+      <label>ثواني السؤال <input type="number" id="timerSec" value="60" min="15" max="180" style="width:70px"></label>
+    </div>
+    <button class="btn" type="button" data-view="home" style="color:#1e293b;border-color:var(--line);background:#fff">العودة</button>
+  </div>
+</section>
+</main>
+<footer>إعداد المهندس سمير حبيب بنتن · الستون الذهبية — المجال الأول · اجتياز 55٪</footer>
+<div class="hidden" style="position:fixed;left:-9999px;top:0">
+  <div id="cert">
+    <div style="border:6px double #0f1c3f;padding:28px;text-align:center">
+      <h2 style="color:#0f1c3f;margin:0 0 6px">شهادة إنجاز</h2>
+      <p style="color:#475569;margin:0 0 14px">الستون الذهبية — المجال الأول (المعرفة المهنية)</p>
+      <p>يُشهد بأن</p>
+      <h1 id="certName" style="color:#b8860b;margin:8px 0">—</h1>
+      <p>قد أتمّ الاختبار بنسبة</p>
+      <h2 id="certScore" style="color:#0B7A64">—</h2>
+      <p id="certDate">—</p>
+      <p style="margin-top:22px;color:#64748b">إعداد المهندس سمير حبيب بنتن</p>
+    </div>
+  </div>
+</div>
+<script id="bank-data" type="application/json">
+[{"id":1,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"يدرك مدرب أن مجموعة من المتدربين البالغين يرفضون المشاركة في أنشطة تدريبية تعتمد على اللعب الجماعي، بحجة أنها لا تناسب خبراتهم المهنية. أي تفسير تربوي أدق لهذا الموقف؟","options":["ضعف في مهارات التواصل الاجتماعي لدى المتدربين في هذه الفئة العمرية","قصور في تصميم الأنشطة وعدم مراعاة مبادئ تعلم الكبار في التدريب","تمرد على قيادة المدرب ورفض للسلطة التدريبية داخل القاعة التدريبية","تدني في الدافعية الداخلية نحو محتوى التدريب المقدم في القاعة"],"correctText":"قصور في تصميم الأنشطة وعدم مراعاة مبادئ تعلم الكبار في التدريب","feedback":"مبادئ تعلم الكبار (Andragogy) تؤكد أن البالغين يتعلمون عندما يرون ارتباط المحتوى بخبراتهم المهنية، والأنشطة اللعبية دون رابط مهني تخالف هذا المبدأ، فالمشكلة في التصميم لا في المتدربين.","guiding_words":"يرفضون المشاركة، خبراتهم المهنية، تفسير أدق","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.2","pattern":"تحليل موقف تدريبي"},{"id":2,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"في ضوء نظرية بياجيه، يطلب مدرب من متدربين في مرحلة العمليات المجردة حل مشكلة افتراضية. ما المؤشر الأدائي الأدق على نجاحهم؟","options":["سرعة الوصول إلى الإجابة الصحيحة دون خطوات تفكير واضحة","القدرة على تذكر خطوات الحل السابقة واسترجاعها فوراً","القدرة على التفكير المنطقي في الفروض والافتراضات المجردة","الدقة في تطبيق القوانين المحفوظة دون فهم العلاقات"],"correctText":"القدرة على التفكير المنطقي في الفروض والافتراضات المجردة","feedback":"مرحلة العمليات المجردة تتميز بالتفكير المنطقي في الفروض والافتراضات، والقدرة على معالجة المفاهيم المجردة دون الحاجة لمحسوسات.","guiding_words":"العمليات المجردة، مشكلة افتراضية، مؤشر النجاح","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 2.1.1","pattern":"تطبيق نظري"},{"id":3,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"يشكو مدرب من أن متدربين موهوبين يفشلون في نقل ما تعلموه إلى بيئة العمل رغم تميزهم في القاعة التدريبية. أي نظريات التعلم تفسر ذلك بدقة؟","options":["النظرية السلوكية ومبدأ التعزيز الإيجابي والسلبي للسلوك","النظرية البنائية ومبدأ بناء المخططات المعرفية الذاتية","نظرية التعلم الاجتماعي ومبدأ الملاحظة والنمذجة السلوكية","نظرية التعلم التجريبي ومبدأ التأمل على التطبيق في السياق"],"correctText":"نظرية التعلم التجريبي ومبدأ التأمل على التطبيق في السياق","feedback":"كولب يفسر الفجوة بأن التعلم لا يكتمل دون مرحلة التجريب النشط والتأمل على التطبيق في السياق الحقيقي، فالمتدرب يحتاج لممارسة فعلية في بيئة العمل.","guiding_words":"نقل ما تعلموه، تميزهم في القاعة، فجوة النقل","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.1","pattern":"تشخيص نظري"},{"id":4,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"عند تصميم نشاط لمتدربين في مرحلة «ما قبل العمليات»، أي خيار يراعي خصوصية هذه المرحلة بدقة؟","options":["مناقشة مجردة لمفاهيم متقدمة تناسب قدراتهم العقلية المتطورة","استخدام وسائل محسوسة وتجارب مباشرة تناسب تفكيرهم الحسي","تكليفهم بحل مشكلات افتراضية معقدة لتنمية تفكيرهم المنطقي","إلزامهم بحفظ القوانين واسترجاعها لترسيخ المفاهيم في ذاكرتهم"],"correctText":"استخدام وسائل محسوسة وتجارب مباشرة تناسب تفكيرهم الحسي","feedback":"مرحلة ما قبل العمليات تتطلب المحسوس لا المجرد، فالتجارب والوسائل المحسوسة هي الأنسب لتطوير تفكيرهم في هذه المرحلة.","guiding_words":"ما قبل العمليات، يراعي خصوصية المرحلة","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 2.1.1","pattern":"تطبيق معرفي"},{"id":5,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"يستخدم مدرب أسلوب «التعلم بالاكتشاف الموجه» مع متدربين ذوي خبرات سابقة متنوعة. ما التحدي الأكبر المتوقع؟","options":["رفض المتدربين للاكتشاف وطلبهم التلقين المباشر للمحتوى","تفاوت مستويات التوجيه المطلوب لكل متدرب وفق خبراته","صعوبة تقييم نتائج التعلم بالاكتشاف بأدوات موضوعية","قلة الوقت المتاح للاكتشاف في القاعة التدريبية المحددة"],"correctText":"صعوبة تقييم نتائج التعلم بالاكتشاف بأدوات موضوعية","feedback":"التحدي الأكبر هو أن المتدربين بخبرات متنوعة يحتاجون توجيهاً متبايناً، وهذا يصعب تطبيق الاكتشاف الموجه بشكل موحد.","guiding_words":"خبرات سابقة متنوعة، التحدي الأكبر","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تحليل تحديات"},{"id":6,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"أي مما يلي يعد مثالاً على «المواءمة» (Accommodation) عند بياجيه؟","options":["طفل يضيف اسم حيوان جديد لمخططه عن الحيوانات دون تعديل","طفل يعدل مفهومه عن الطيور بعد رؤية طائر لا يطير","طفل يكرر سلوكاً تعلمه من والديه دون تغيير في المخطط","طفل يقلد أخاه الأكبر في طريقة الكلام والحركة"],"correctText":"طفل يعدل مفهومه عن الطيور بعد رؤية طائر لا يطير","feedback":"المواءمة تعني تعديل المخطط القائم لاستيعاب معلومة جديدة تتعارض معه، كتعديل مفهوم الطيور بعد رؤية طائر لا يطير.","guiding_words":"المواءمة، Accommodation، تعديل المفهوم","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.1","pattern":"تصنيف مفاهيمي"},{"id":7,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"متدرب يعاني من صعوبة في استرجاع المعلومات أثناء التدريب لكنه يتميز في التطبيق العملي. ما التفسير التربوي الأدق؟","options":["ضعف في الذاكرة قصيرة المدى يحتاج تدخلاً طبياً","قصور في مهارات الدراسة الفعالة والتنظيم الذاتي","تفضيل نمط تعلم عملي على النمط النظري في التدريب","تدني في الدافعية نحو المحتوى النظري المقدم في القاعة"],"correctText":"تفضيل نمط تعلم عملي على النمط النظري في التدريب","feedback":"هذا نمط تعلم عملي (Activist حسب كولب) يفضل التطبيق، وضعفه في النظري ليس عيباً معرفياً بل اختلاف في الأسلوب.","guiding_words":"صعوبة في الاسترجاع، يتميز في التطبيق","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تفسير فروق فردية"},{"id":8,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"أي عبارة تصف «الفروق الفردية» في سياق التدريب بدقة؟","options":["اختلافات ثابتة لا يمكن تعديلها بالتدخل التدريبي المخطط","تنوعات في الاستعداد والسرعة والأسلوب قابلة للمراعاة","عوائق تعيق توحيد مخرجات التدريب لجميع المتدربين","مؤشرات على تفوق بعض المتدربين على غيرهم بشكل ثابت"],"correctText":"تنوعات في الاستعداد والسرعة والأسلوب قابلة للمراعاة","feedback":"الفروق الفردية تنوعات في الاستعداد والسرعة والأسلوب قابلة للمراعاة في التصميم التدريبي، وليست عوائق أو مؤشرات تفوق.","guiding_words":"الفروق الفردية، تنوعات قابلة للمراعاة","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تحليل مفاهيمي"},{"id":9,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"يطلب مدرب من متدربين تلخيص محتوى تدريبي بأسلوبهم. أي مستوى معرفي يقيسه هذا التكليف؟","options":["التذكر المباشر للمعلومات كما وردت في المصدر","الفهم وإعادة الصياغة بأسلوب المتدرب الخاص","التطبيق في مواقف جديدة لم يمر بها المتدرب سابقاً","التحليل والتفكيك المعرفي للمحتوى إلى عناصره"],"correctText":"الفهم وإعادة الصياغة بأسلوب المتدرب الخاص","feedback":"التلخيص بأسلوب المتدرب يقيس الفهم وإعادة الصياغة وليس الحفظ، وهو المستوى الثاني في تصنيف بلوم.","guiding_words":"تلخيص، بأسلوبهم، مستوى معرفي","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.1","pattern":"تصنيف بلوم"},{"id":10,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"أي نشاط تدريبي يناسب المتدربين ذوي النمط «المتباعد» (Diverger) وفق كولب؟","options":["حل مشكلات عملية محددة بإجراءات واضحة ومحددة مسبقاً","توليد أفكار متعددة من خلال العصف الذهني الجماعي الحر","بناء نماذج نظرية مجردة من البيانات والملاحظات المجمعة","تطبيق مهارات مكتسبة في مواقف جديدة متنوعة ومتغيرة"],"correctText":"تطبيق مهارات مكتسبة في مواقف جديدة متنوعة ومتغيرة","feedback":"المتباعد يفضل التوليد والعصف الذهني والتفكير المتشعب والمواقف المفتوحة التي تتطلب أفكاراً متعددة.","guiding_words":"المتباعد، Diverger، توليد الأفكار","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تطبيق أنماط"},{"id":11,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"متدرب يفضل التعلم من خلال التجربة المباشرة ثم التأمل فيها. أي نمط من أنماط كولب يناسبه؟","options":["المستوعب الذي يجمع بين التأمل والتجريد النظري","المتقارب الذي يجمع بين التجريد والتجريب النشط","المتكيف الذي يجمع بين التجربة والتجريب النشط","المتباعد الذي يجمع بين التجربة الملموسة والتأمل"],"correctText":"المتباعد الذي يجمع بين التجربة الملموسة والتأمل","feedback":"الجمع بين التجربة الملموسة والملاحظة التأملية يميز النمط المتباعد وفق تصنيف كولب.","guiding_words":"التجربة المباشرة، التأمل، نمط كولب","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تشخيص نمط"},{"id":12,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"أي مما يلي يمثل تحدياً حقيقياً في تطبيق نظريات التعلم في التدريب المهني؟","options":["ندرة النظريات التربوية المناسبة لتعليم البالغين في الميدان","صعوبة ترجمة النظريات إلى إجراءات عملية قابلة للتنفيذ","رفض المتدربين لكل نظرية تربوية حديثة تُطرح في القاعة","تعارض النظريات مع معايير هيئة التدريب والاعتماد المهني"],"correctText":"صعوبة ترجمة النظريات إلى إجراءات عملية قابلة للتنفيذ","feedback":"التحدي الأكبر هو ترجمة النظريات المجردة إلى إجراءات وأنشطة عملية قابلة للتنفيذ في البيئة التدريبية.","guiding_words":"تحدياً حقيقياً، تطبيق النظريات، ترجمة عملية","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.1","pattern":"تحليل تحديات"},{"id":13,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"مدرب يستخدم اختباراً قصيراً قبل بدء البرنامج التدريبي. ما الهدف الأساسي من ذلك؟","options":["قياس رضا المتدربين عن البرنامج التدريبي المقدم","تحديد المستوى المعرفي المبدئي للمتدربين قبل الانطلاق","مقارنة أداء المتدربين ببعضهم لتصنيفهم وفق مستوياتهم","إشغال المتدربين في بداية الجلسة بكسر الجمود والملل"],"correctText":"تحديد المستوى المعرفي المبدئي للمتدربين قبل الانطلاق","feedback":"الاختبار القبلي وظيفته تشخيصية: تحديد المستوى المبدئي لتكييف التدريب وفق الاحتياجات الفعلية.","guiding_words":"قبل بدء البرنامج، الهدف الأساسي، اختبار قصير","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 1.1.1.2","pattern":"تحليل وظيفة تقويمية"},{"id":14,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"أي ممارسة تدريبية تراعي مبدأ «التعلم النشط» بشكل أدق؟","options":["مناقشة مجموعات صغيرة وحل مشكلات مهنية واقعية","عرض تقديمي طويل يتبعه اختبار قصير في نهايته","محاضرة تفاعلية مع أسئلة متفرقة بين الفقرات","قراءة فردية لمادة تدريبية مطبوعة دون توجيه"],"correctText":"مناقشة مجموعات صغيرة وحل مشكلات مهنية واقعية","feedback":"العمل في مجموعات صغيرة وحل المشكلات يجعل المتدرب محور العملية التدريبية، وهو جوهر التعلم النشط.","guiding_words":"التعلم النشط، بشكل أدق، مجموعات صغيرة","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تقييم ممارسات"},{"id":15,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم خصائص المتدربين والنظريات المرتبطة بالتعلم","level":"advanced","question":"متدرب يرفض مشاركة زملائه في الأنشطة الجماعية ويفضل العمل الفردي. ما التفسير الأدق من منظور أنماط التعلم؟","options":["ضعف في المهارات الاجتماعية يحتاج تدريباً علاجياً","نمط تعلم تأملي أو نظري يحتاج وقتاً للتفكير قبل المشاركة","قصور في الدافعية للتعلم الجماعي داخل القاعة التدريبية","تفضيل فردي قد يعكس نمطاً تعلمياً يحتاج مراعاة المدرب"],"correctText":"تفضيل فردي قد يعكس نمطاً تعلمياً يحتاج مراعاة المدرب","feedback":"تفضيل العمل الفردي قد يعكس نمطاً تأملياً أو نظرياً يحتاج وقتاً للتفكير قبل المشاركة، وليس بالضرورة مشكلة سلوكية.","guiding_words":"يرفض المشاركة، يفضل العمل الفردي، نمط تعلم","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 3.1.1","pattern":"تفسير سلوك"},{"id":16,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"أي مما يلي يميز «التدريب» عن «التعليم» في السياق المهني؟","options":["التدريب أطول مدة من التعليم ويمتد لسنوات دراسية","التدريب يركز على الأداء والمهارات التطبيقية الفورية","التعليم يستهدف الكبار فقط دون الصغار في المدارس","التعليم يعتمد على التقويم والتدريب لا يحتاج تقويماً"],"correctText":"التدريب يركز على الأداء والمهارات التطبيقية الفورية","feedback":"التدريب يركز على الأداء والمهارات التطبيقية المرتبطة بالوظيفة الحالية، بينما التعليم أوسع ويشمل المعرفة النظرية.","guiding_words":"يميز، التدريب عن التعليم، السياق المهني","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 1.2.1","pattern":"مقارنة مفاهيم"},{"id":17,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"ما المبدأ الأساسي الذي يقوم عليه «التدريب المتمركز حول المتدرب»؟","options":["المدرب هو مصدر المعرفة الوحيد والمرجع النهائي للمعلومة","المحتوى هو محور العملية التدريبية بغض النظر عن المتدرب","التقويم هو غاية التدريب النهائية وليس وسيلة تحسين","المتدرب مشارك نشط في بناء تعلمه وتوجيه مساره التدريبي"],"correctText":"المتدرب مشارك نشط في بناء تعلمه وتوجيه مساره التدريبي","feedback":"التدريب المتمركز حول المتدرب يجعل المتدرب مشاركًا نشطًا في بناء تعلمه وتوجيه مساره وفق احتياجاته المهنية.","guiding_words":"المبدأ الأساسي، المتمركز حول المتدرب","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"فهم مبدأ"},{"id":18,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"أي العناصر التالية يُعد «مكوناً أساسياً» في أي برنامج تدريبي فعّال؟","options":["أهداف واضحة قابلة للقياس ومحددة زمنياً ومعيارياً","عدد كبير من المتدربين في القاعة لإثراء النقاش","مدة طويلة من المحاضرات المتواصلة دون فترات راحة","وسائل تقنية متقدمة ومكلفة بغض النظر عن الحاجة"],"correctText":"أهداف واضحة قابلة للقياس ومحددة زمنياً ومعيارياً","feedback":"الأهداف الواضحة القابلة للقياس هي أساس أي برنامج فعّال، وبقية العناصر وسائل مساندة تختلف حسب السياق.","guiding_words":"مكوناً أساسياً، برنامج فعّال، أهداف قابلة للقياس","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"تحديد مكون"},{"id":19,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"مدرب يربط كل جلسة تدريبية بأهداف البرنامج الكلية. أي مبدأ يحقق بذلك؟","options":["مبدأ التغذية الراجعة المستمرة للمتدربين أثناء التنفيذ","مبدأ التعزيز الإيجابي للسلوك المرغوب في القاعة","مبدأ التدرج من البسيط إلى المعقد في تسلسل المحتوى","مبدأ الترابط والتكامل بين أجزاء البرنامج وأهدافه"],"correctText":"مبدأ الترابط والتكامل بين أجزاء البرنامج وأهدافه","feedback":"الربط بالأهداف الكلية يحقق مبدأ الترابط والتكامل بين أجزاء البرنامج، فلا تبقى الجلسات جزراً منفصلة.","guiding_words":"يربط، أهداف البرنامج الكلية، الترابط والتكامل","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"تحليل ممارسة"},{"id":20,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"أي نموذج تصميم تعليمي يبدأ بـ «تحليل الاحتياجات» قبل أي خطوة أخرى؟","options":["نموذج كولب للتعلم التجريبي ودورته الرباعية الشهيرة","نموذج ADDIE للتصميم التعليمي المنهجي المتكامل","نموذج بلوم لتصنيف الأهداف التعليمية المعرفية","نموذج جانييه للأحداث التعليمية التسعة المتسلسلة"],"correctText":"نموذج ADDIE للتصميم التعليمي المنهجي المتكامل","feedback":"ADDIE يبدأ بمرحلة Analysis (التحليل) قبل التصميم والتطوير والتنفيذ والتقويم.","guiding_words":"تحليل الاحتياجات، قبل أي خطوة، نموذج تصميم","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"تمييز نماذج"},{"id":21,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"ما الفرق الجوهري بين «الهدف التعليمي» و«ناتج التعلم»؟","options":["الهدف أعم والناتج أكثر تحديداً وقابلية للقياس المباشر","الهدف للمعلم والناتج للمتدرب فقط دون تداخل بينهما","لا فرق بينهما في السياق التدريبي ويمكن استخدامهما معاً","الناتج أعم والهدف أكثر تحديداً وقابلية للقياس العملي"],"correctText":"الهدف أعم والناتج أكثر تحديداً وقابلية للقياس المباشر","feedback":"الهدف تصور عام لما نريد تحقيقه، والناتج صياغة دقيقة قابلة للقياس تصف ما سيصل إليه المتدرب فعلياً.","guiding_words":"الفرق الجوهري، الهدف التعليمي، ناتج التعلم","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 1.2.1","pattern":"مقارنة مفاهيم"},{"id":22,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"أي مما يلي يمثل «مبدأ التدرج» في تصميم التدريب؟","options":["تقديم المحتوى الصعب في البداية لتحدي المتدربين","ترتيب المحتوى من البسيط إلى المعقد بشكل متسلسل","تقسيم المتدربين حسب مستواهم إلى مجموعات متجانسة","تكرار المحتوى نفسه في كل جلسة لترسيخ المفاهيم"],"correctText":"ترتيب المحتوى من البسيط إلى المعقد بشكل متسلسل","feedback":"التدرج يعني الانتقال من البسيط إلى المعقد بشكل متسلسل يبني كل مستوى على ما قبله.","guiding_words":"مبدأ التدرج، من البسيط إلى المعقد","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"تطبيق مبدأ"},{"id":23,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"مدرب يواجه صعوبة في تحقيق أهداف البرنامج بسبب كثافة المحتوى. ما التصرف الأدق؟","options":["الاستمرار في المحتوى مع تقليل التمارين التطبيقية","إعادة تحليل الأهداف ومواءمتها مع الوقت المتاح فعلياً","إلغاء التقويم الختامي لتوفير وقت أكبر للمحتوى","نقل المحتوى للدراسة الذاتية بالكامل خارج القاعة"],"correctText":"إعادة تحليل الأهداف ومواءمتها مع الوقت المتاح فعلياً","feedback":"الحل الجذري هو إعادة تحليل الأهداف ومواءمتها مع الوقت المتاح، فقد تكون الأهداف أوسع مما يسمح به الوقت الفعلي.","guiding_words":"كثافة المحتوى، التصرف الأدق، إعادة تحليل","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"حل مشكلة"},{"id":24,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"أي مما يلي يعد من «مبادئ تعلم الكبار» (Andragogy)؟","options":["المتعلم الكبير يعتمد على المعلم كمصدر وحيد للمعرفة","خبرات المتعلم الكبير مورد مهم وأساسي لعملية التعلم","المتعلم الكبير يتعلم بنفس طريقة تعلم الأطفال تماماً","المتعلم الكبير يرفض التعلم الذاتي ويطلب التوجيه الدائم"],"correctText":"خبرات المتعلم الكبير مورد مهم وأساسي لعملية التعلم","feedback":"خبرات الكبار مورد أساسي في التعلم، فهم يتعلمون بشكل أفضل عندما يرتبط المحتوى بخبراتهم المهنية.","guiding_words":"تعلم الكبار، Andragogy، خبرات مورد","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1 - المؤشر 2.1.1","pattern":"فهم مبدأ"},{"id":25,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"استيعاب مفاهيم التدريب ومبادئه ونماذجه","level":"advanced","question":"ما دور «التغذية الراجعة» في العملية التدريبية؟","options":["إصدار حكم نهائي على أداء المتدرب وتصنيفه","توجيه المتدرب لتحسين أدائه وتصحيح مساره التدريبي","ملء الوقت الفارغ بين الأنشطة التدريبية المختلفة","مقارنة المتدربين ببعضهم البعض لتحديد الأفضل"],"correctText":"توجيه المتدرب لتحسين أدائه وتصحيح مساره التدريبي","feedback":"التغذية الراجعة وظيفتها توجيهية تحسينية، فهي تساعد المتدرب على معرفة الفجوة بين أدائه الحالي والمستهدف.","guiding_words":"دور التغذية الراجعة، توجيهية تحسينية","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1 - المؤشر 2.2.1","pattern":"فهم وظيفة"},{"id":26,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"ما السمة الأساسية التي تميز «التدريب العملي» عن «التدريب النظري»؟","options":["الاعتماد على المحاضرات والعروض التقديمية النظرية","التركيز على التطبيق والممارسة الفعلية للمهارات","قلة الحاجة إلى التخطيط المسبق من قبل المدرب","الاستغناء عن التقويم في نهاية البرنامج التدريبي"],"correctText":"التركيز على التطبيق والممارسة الفعلية للمهارات","feedback":"التدريب العملي يقوم على التطبيق والممارسة الفعلية للمهارات، بينما النظري يعتمد على المعرفة المجردة.","guiding_words":"السمة الأساسية، التدريب العملي، التطبيق","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1.2 - المؤشر 1.1.2","pattern":"مقارنة أنماط"},{"id":27,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"في التدريب الإلكتروني «غير المتزامن»، ما التحدي الأكبر للمدرب؟","options":["ضعف جودة الاتصال بالإنترنت لدى بعض المتدربين","الحفاظ على تفاعل المتدربين دون حضور مباشر معهم","ارتفاع تكلفة إنتاج المحتوى الرقمي التفاعلي","قلة أعداد المتدربين المسجلين في البرنامج التدريبي"],"correctText":"الحفاظ على تفاعل المتدربين دون حضور مباشر معهم","feedback":"غياب التفاعل المباشر يجعل الحفاظ على تفاعل المتدربين التحدي الأكبر في التدريب غير المتزامن.","guiding_words":"غير المتزامن، التحدي الأكبر، الحفاظ على التفاعل","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"تحليل تحديات"},{"id":28,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"أي نمط تدريب إلكتروني يجمع بين الحضور المباشر والتعلم عن بعد؟","options":["التدريب المتزامن الذي يعتمد على اللقاءات المباشرة","التدريب غير المتزامن الذي يعتمد على التعلم الذاتي","التدريب المدمج (Blended) الذي يجمع النمطين معاً","التدريب المتنقل (Mobile) الذي يعتمد على الأجهزة"],"correctText":"التدريب المدمج (Blended) الذي يجمع النمطين معاً","feedback":"التدريب المدمج يجمع بين اللقاءات المباشرة والتعلم الإلكتروني في تصميم واحد متكامل.","guiding_words":"يجمع، الحضور المباشر، التعلم عن بعد","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"تمييز مفاهيم"},{"id":29,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"متى يكون «التدريب النظري المباشر» الخيار الأنسب؟","options":["عند تقديم أسس نظرية لفهم أعمق للمفاهيم المعقدة","عند تعليم مهارات حركية دقيقة تحتاج ممارسة فعلية","عند تدريب أعداد كبيرة على ممارسة عملية متكررة","عند الحاجة إلى تكرار الأداء وتصحيح الأخطاء فوراً"],"correctText":"عند تقديم أسس نظرية لفهم أعمق للمفاهيم المعقدة","feedback":"التدريب النظري مناسب لتقديم الأسس النظرية والمفاهيم المعقدة التي تحتاج شرحاً وافياً قبل التطبيق.","guiding_words":"متى يكون الأنسب، التدريب النظري المباشر","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1.2 - المؤشر 1.1.2","pattern":"تطبيق قرار"},{"id":30,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"أي مما يلي يمثل ميزة أساسية للتدريب الإلكتروني المتزامن؟","options":["مرونة كاملة في الوقت والمكان للمتدربين المشاركين","تكلفة إنتاج أولية منخفضة مقارنة بالنمط المباشر","إمكانية التفاعل الفوري مع المدرب والمتدربين","عدم الحاجة إلى تقويم مستمر طوال فترة التدريب"],"correctText":"إمكانية التفاعل الفوري مع المدرب والمتدربين","feedback":"التفاعل الفوري مع المدرب والمتدربين هو ما يميز المتزامن، فهو يحاكي القاعة التقليدية عن بعد.","guiding_words":"ميزة أساسية، المتزامن، التفاعل الفوري","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"تحليل ميزة"},{"id":31,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"مدرب يخطط لتدريب مهارة عملية لمتدربين موزعين جغرافياً. ما الأنسب؟","options":["تدريب نظري مباشر في قاعة واحدة تجمع الجميع","تدريب إلكتروني مدمج بجلسات تطبيقية عملية","تدريب غير متزامن بالكامل دون أي تطبيق عملي","تدريب مباشر عملي مع سفر المتدربين إلى المركز"],"correctText":"تدريب إلكتروني مدمج بجلسات تطبيقية عملية","feedback":"المدمج يوفر النظري عن بعد والعملي بلقاءات تطبيقية، وهو الأنسب للتوزيع الجغرافي مع الحاجة للمهارة العملية.","guiding_words":"موزعين جغرافياً، مهارة عملية، الأنسب","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"حل مشكلة تصميمية"},{"id":32,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"ما الشرط الأساسي لنجاح التدريب الإلكتروني غير المتزامن؟","options":["سرعة إنترنت عالية لكل المتدربين في جميع الأوقات","تصميم محتوى تفاعلي وواضح التعليمات وسهل التنقل","حضور المدرب الدائم في المنصة للإجابة الفورية","تقليل عدد المتدربين إلى حد أدنى في كل مجموعة"],"correctText":"تصميم محتوى تفاعلي وواضح التعليمات وسهل التنقل","feedback":"المحتوى التفاعلي الواضح هو شرط نجاح التعلم الذاتي في النمط غير المتزامن، لأنه يعوض غياب المدرب المباشر.","guiding_words":"الشرط الأساسي، غير المتزامن، محتوى تفاعلي","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"تحليل شرط"},{"id":33,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"أي مما يلي يعد تحدياً مشتركاً بين التدريب النظري والإلكتروني؟","options":["صعوبة الحفاظ على انتباه المتدربين وتركيزهم","ارتفاع تكلفة الطباعة والتوزيع الورقي للمواد","الحاجة إلى قاعات مجهزة تقنياً بشكل دائم","استحالة التقويم في نهاية البرنامج التدريبي"],"correctText":"صعوبة الحفاظ على انتباه المتدربين وتركيزهم","feedback":"الحفاظ على انتباه المتدربين تحدٍّ مشترك في كل الأنماط، سواء النظري أو الإلكتروني أو المباشر.","guiding_words":"تحدياً مشتركاً، التدريب النظري والإلكتروني","context":"المجال الأول - المعيار 1 - المعيار الفرعي 1.1.2 و2.1.2","pattern":"تحليل مشترك"},{"id":34,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"أي مما يلي يميز «التدريب المتنقل» (Mobile Learning)؟","options":["الحاجة إلى مختبرات حاسوب ثابتة ومجهزة بالكامل","الاعتماد على لقاءات مباشرة إلزامية في مركز التدريب","قلة التفاعل مع المحتوى التدريبي المقدم للمتدرب","إمكانية التعلم في أي وقت ومن أي مكان مناسب للمتدرب"],"correctText":"إمكانية التعلم في أي وقت ومن أي مكان مناسب للمتدرب","feedback":"التدريب المتنقل يتيح التعلم في أي وقت ومن أي مكان، ويوفر مرونة عالية للمتدرب المشغول.","guiding_words":"التدريب المتنقل، أي وقت، أي مكان","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.1.2","pattern":"تمييز نمط"},{"id":35,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"أنماط التدريب المباشر والإلكتروني","level":"advanced","question":"ما المعيار الأدق لاختيار نمط التدريب المناسب؟","options":["توفر التقنية في بيئة التدريب والمركز المعني","مواءمة النمط مع الأهداف وخصائص المتدربين الفعلية","تفضيلات المدرب الشخصية وخبرته في نمط معين","قلة التكلفة المالية للتنفيذ ومقارنتها بالبدائل"],"correctText":"مواءمة النمط مع الأهداف وخصائص المتدربين الفعلية","feedback":"المعيار الأدق هو المواءمة بين النمط والأهداف وخصائص المتدربين، فالنمط يخدم الأهداف لا العكس.","guiding_words":"المعيار الأدق، اختيار نمط التدريب","context":"المجال الأول - المعيار 1 - المعيار الفرعي 2.1.2 - المؤشر 2.2.1","pattern":"تقييم معيار"},{"id":36,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"أي استراتيجية تدريبية تناسب تحقيق نواتج تعلم تتعلق بالمهارات العليا؟","options":["المحاضرة المباشرة التي ينقل فيها المدرب المعلومات","حل المشكلات والدراسة الحالة التطبيقية المعمقة","القراءة الموجهة الفردية للمحتوى النظري المقدم","العرض المرئي المتسلسل للمحتوى المعلوماتي"],"correctText":"حل المشكلات والدراسة الحالة التطبيقية المعمقة","feedback":"حل المشكلات والدراسة الحالة ينميان التفكير العليا كالتحليل والتقويم والابتكار.","guiding_words":"المهارات العليا، استراتيجية تدريبية مناسبة","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"اختيار استراتيجية"},{"id":37,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"مدرب يريد تشجيع المتدربين على التفكير الناقد. ما الاستراتيجية الأنسب؟","options":["تكرار المحتوى عدة مرات لترسيخ المفاهيم في الأذهان","المناقشة والحوار السقراطي بطرح أسئلة استقصائية","إملاء الملاحظات المهمة على المتدربين لكتابتها","عرض فيديوهات تعليمية متسلسلة دون نقاش"],"correctText":"المناقشة والحوار السقراطي بطرح أسئلة استقصائية","feedback":"الحوار السقراطي يحفز التفكير الناقد بطرح أسئلة استقصائية تدفع المتدرب للتحليل والاستنتاج.","guiding_words":"التفكير الناقد، استراتيجية مناسبة، حوار سقراطي","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"اختيار استراتيجية"},{"id":38,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"ما التحدي الرئيسي في تطبيق استراتيجية «التعلم التعاوني»؟","options":["ضعف المحتوى التدريبي المقدم في القاعة التدريبية","تفاوت مستويات المتدربين داخل المجموعة الواحدة","قلة عدد المتدربين في القاعة التدريبية الواحدة","غياب أهداف التدريب الواضحة التي توجه المجموعات"],"correctText":"تفاوت مستويات المتدربين داخل المجموعة الواحدة","feedback":"تفاوت المستويات يجعل توزيع الأدوار وتكافؤ المشاركة تحدياً، فقد يسيطر الأقوى على المجموعة.","guiding_words":"التعلم التعاوني، التحدي الرئيسي، تفاوت المستويات","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.2.2 - المؤشر 2.2.2","pattern":"تحليل تحديات"},{"id":39,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"أي استراتيجية تناسب المتدربين ذوي الخبرات المهنية المتنوعة؟","options":["تبادل الخبرات والمناقشة الجماعية الموجهة بينهم","المحاضرة الموحدة لجميع المتدربين دون تفريق","الاختبارات الفردية المتكررة لقياس المستوى","القراءة الذاتية للمحتوى دون توجيه أو مناقشة"],"correctText":"تبادل الخبرات والمناقشة الجماعية الموجهة بينهم","feedback":"تبادل الخبرات يستثمر التنوع كمورد تعلمي، فيستفيد كل متدرب من خبرات الآخرين.","guiding_words":"خبرات مهنية متنوعة، تبادل الخبرات","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.2.2 - المؤشر 2.2.2","pattern":"مواءمة استراتيجية"},{"id":40,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"ما العلاقة بين «استراتيجية التدريب» و«نمط التدريب»؟","options":["الاستراتيجية تختار أولاً ثم يحدد النمط تبعاً لها","النمط يحدد مسبقاً ثم تختار الاستراتيجية داخله","علاقة تبادلية: النمط يحدد الإطار والاستراتيجية تتحقق داخله","كلاهما مستقلان تماماً عن الآخر ولا تأثير بينهما"],"correctText":"علاقة تبادلية: النمط يحدد الإطار والاستراتيجية تتحقق داخله","feedback":"العلاقة تبادلية: النمط يحدد الإطار العام والاستراتيجية تتحقق داخل هذا الإطار وفق الأهداف.","guiding_words":"العلاقة بين، استراتيجية التدريب، نمط التدريب","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.2 - المؤشر 2.2.2","pattern":"تحليل علاقة"},{"id":41,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"أي مما يلي يمثل «استراتيجية تدريبية» لا «أسلوب تدريب»؟","options":["استخدام السبورة الذكية في عرض المحتوى التفاعلي","تقسيم المتدربين إلى مجموعات متعاونة لتحقيق هدف","عرض فيديو تعليمي قصير في بداية الجلسة","استخدام العرض التقديمي الملون والمنسق بعناية"],"correctText":"تقسيم المتدربين إلى مجموعات متعاونة لتحقيق هدف","feedback":"تقسيم المجموعات استراتيجية تنظيمية تحدد كيفية التعلم، بينما الباقي أساليب عرض ووسائل.","guiding_words":"استراتيجية تدريبية، لا أسلوب تدريب","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"تمييز مفاهيم"},{"id":42,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"مدرب يستخدم «الدراسة الحالة» مع متدربين مبتدئين. ما التحدي المتوقع؟","options":["عدم توفر الحالات المناسبة في مجال التخصص المهني","قلة خبرة المتدربين في التحليل والاستنتاج من الحالات","رفض المتدربين لهذه الاستراتيجية وطلبهم التلقين","الحاجة إلى وقت طويل للتنفيذ يتجاوز مدة الجلسة"],"correctText":"قلة خبرة المتدربين في التحليل والاستنتاج من الحالات","feedback":"المبتدئون يفتقرون للخبرة التحليلية اللازمة للاستفادة من الحالة، فيحتاجون توجيهاً أكبر من المدرب.","guiding_words":"الدراسة الحالة، مبتدئين، التحدي","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"توقع تحدٍّ"},{"id":43,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"أي استراتيجية تنمي «التعلم الذاتي» لدى المتدربين؟","options":["المحاضرة التفاعلية المطولة التي يقدمها المدرب","الاختبارات القصيرة المتكررة لقياس المستوى","العرض المرئي المتسلسل للمحتوى المعلوماتي","تكليفهم بمشاريع بحثية تطبيقية تحتاج استقصاءً"],"correctText":"تكليفهم بمشاريع بحثية تطبيقية تحتاج استقصاءً","feedback":"المشاريع البحثية تنمي الاستقلالية والبحث الذاتي، فيبحث المتدرب عن المعلومة بنفسه.","guiding_words":"التعلم الذاتي، مشاريع بحثية تطبيقية","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"اختيار استراتيجية"},{"id":44,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"ما معيار اختيار الاستراتيجية التدريبية الأنسب؟","options":["مواءمتها مع النواتج المستهدفة وخصائص المتدربين","سهولة تطبيقها على المدرب وقلة الجهد المطلوب","قلة تكلفتها المادية مقارنة بالاستراتيجيات الأخرى","حداثتها في الأدبيات التربوية المعاصرة فقط"],"correctText":"مواءمتها مع النواتج المستهدفة وخصائص المتدربين","feedback":"المعيار الجوهري هو المواءمة مع النواتج المستهدفة وخصائص المتدربين، فما يناسب مجموعة قد لا يناسب أخرى.","guiding_words":"معيار اختيار، الاستراتيجية الأنسب، المواءمة","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.2.2 - المؤشر 1.2.2","pattern":"تقييم معيار"},{"id":45,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم استراتيجيات التدريب المتنوعة","level":"advanced","question":"كيف يوازن المدرب بين استراتيجيات متعددة في الجلسة نفسها؟","options":["بتطبيق استراتيجية واحدة فقط لكل جلسة تدريبية","بتوظيف كل استراتيجية في الجزء المناسب لها وفق الهدف","بترك المتدربين يختارون الاستراتيجية التي يفضلونها","بالتركيز على الاستراتيجية الأسهل في التطبيق دائماً"],"correctText":"بتوظيف كل استراتيجية في الجزء المناسب لها وفق الهدف","feedback":"التوظيف الذكي يوزع الاستراتيجيات وفق أجزاء الجلسة وأهدافها الجزئية، فيتكامل العرض مع النقاش والتطبيق.","guiding_words":"يوازن، استراتيجيات متعددة، الجلسة نفسها","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.2.2 - المؤشر 2.2.2","pattern":"تحليل موازنة"},{"id":46,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما الوظيفة الأساسية لـ «التقويم التشخيصي» في التدريب؟","options":["إصدار حكم نهائي على أداء المتدرب في نهاية البرنامج","تحديد مستوى المتدرب قبل بدء التدريب لتكييفه","قياس رضا المتدربين عن البرنامج التدريبي المقدم","مقارنة أداء المتدربين بمعايير موحدة بينهم"],"correctText":"تحديد مستوى المتدرب قبل بدء التدريب لتكييفه","feedback":"التشخيصي يسبق التدريب لتحديد نقطة الانطلاق وتكييف التدريب وفق الاحتياجات الفعلية.","guiding_words":"التقويم التشخيصي، الوظيفة الأساسية، قبل التدريب","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"تمييز وظيفة"},{"id":47,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي مما يلي يمثل «التقويم التكويني»؟","options":["اختبار نهائي في ختام البرنامج التدريبي الشامل","ملاحظة المدرب لأداء المتدربين أثناء التطبيق العملي","استبيان رضا المتدربين بعد انتهاء الجلسة التدريبية","مقابلة توظيف بعد انتهاء البرنامج التدريبي بالكامل"],"correctText":"ملاحظة المدرب لأداء المتدربين أثناء التطبيق العملي","feedback":"الملاحظة أثناء التطبيق تقويم تكويني مستمر، يهدف للتحسين أثناء سير التدريب لا للحكم النهائي.","guiding_words":"التقويم التكويني، أثناء التطبيق، مستمر","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"تصنيف نوع تقويم"},{"id":48,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما الفرق بين «التقويم التكويني» و«التقويم الختامي»؟","options":["التكويني أثناء التدريب والختامي بعده للحكم النهائي","التكويني للمتدرب والختامي للمدرب فقط دون تداخل","لا فرق بينهما في الوظيفة ويمكن استخدامهما معاً","التكويني شفهي دائماً والختامي مكتوب دائماً"],"correctText":"التكويني أثناء التدريب والختامي بعده للحكم النهائي","feedback":"التكويني مستمر أثناء التدريب لتحسين الأداء، والختامي في نهايته للحكم على مدى تحقق الأهداف.","guiding_words":"الفرق بين، التكويني، الختامي","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"مقارنة مفاهيم"},{"id":49,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي أداة تقويم تناسب قياس «المهارات العملية» بدقة؟","options":["اختبار الاختيار من متعدد لقياس المعرفة النظرية","استبيان الرأي والاتجاهات لقياس الانطباعات","المقابلة الشخصية القصيرة لقياس الرأي","قوائم الشطب والتقييم الأدائي بمعايير واضحة"],"correctText":"قوائم الشطب والتقييم الأدائي بمعايير واضحة","feedback":"قوائم الشطب والتقييم الأدائي تقيس الأداء الفعلي للمهارة بمعايير محددة، وهي الأنسب للمهارات العملية.","guiding_words":"المهارات العملية، أداة تقويم مناسبة","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"اختيار أداة"},{"id":50,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما ميزة استخدام «ملف الإنجاز» (Portfolio) في التقويم؟","options":["سرعة التصحيح وإصدار النتائج النهائية للمتدربين","قياس التطور المستمر للمتدرب عبر الزمن بشكل شامل","سهولة تطبيقه على أعداد كبيرة من المتدربين معاً","إمكانية مقارنة المتدربين ببعضهم بموضوعية عالية"],"correctText":"قياس التطور المستمر للمتدرب عبر الزمن بشكل شامل","feedback":"ملف الإنجاز يرصد التطور عبر الزمن، فيظهر نمو المتدرب وليس فقط لحظة التقييم النهائية.","guiding_words":"ملف الإنجاز، Portfolio، ميزة","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تحليل ميزة"},{"id":51,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"متى يكون «التقويم الختامي» ضرورياً في التدريب؟","options":["عند الحاجة إلى تعديل التدريب أثناء تنفيذه الفعلي","عند تحديد المستوى المبدئي للمتدربين قبل البدء","عند ملاحظة تقدم المتدربين يومياً وتصحيح مسارهم","عند اتخاذ قرار بشأن منح شهادة أو ترقية مهنية"],"correctText":"عند اتخاذ قرار بشأن منح شهادة أو ترقية مهنية","feedback":"الختامي يُستخدم لاتخاذ قرارات نهائية كمنح الشهادات أو الترقيات، فيقيس مدى تحقق الأهداف الكلية.","guiding_words":"التقويم الختامي، متى، قرار نهائي","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"تحليل متى"},{"id":52,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي مما يلي يعتبر من «عيوب» التقويم بالاختبارات المكتوبة فقط؟","options":["عدم قياسها للمهارات الأدائية والتطبيقية الفعلية","صعوبة تصميمها وصياغة مفرداتها بشكل علمي","ارتفاع تكلفة تصحيحها مقارنة بالأدوات الأخرى","حاجتها إلى وقت طويل للإعداد والمراجعة الفنية"],"correctText":"عدم قياسها للمهارات الأدائية والتطبيقية الفعلية","feedback":"الاختبارات المكتوبة لا تقيس المهارات الأدائية، فهي تقيس المعرفة فقط، وهذا أهم عيوبها.","guiding_words":"عيوب، الاختبارات المكتوبة، المهارات الأدائية","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تحليل عيوب"},{"id":53,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما العلاقة بين «أدوات التقويم» و«نواتج التعلم»؟","options":["الأداة تختار أولاً ثم تحدد النواتج وفقها لاحقاً","النواتج تحدد الأداة الأنسب لقياسها بشكل دقيق","لا علاقة بينهما في التصميم التدريبي الفعال","الأداة واحدة لكل النواتج دائماً دون تغيير"],"correctText":"النواتج تحدد الأداة الأنسب لقياسها بشكل دقيق","feedback":"النواتج هي التي تحدد الأداة المناسبة لقياسها، فأداة قياس المعرفة تختلف عن أداة قياس المهارة.","guiding_words":"العلاقة بين، أدوات التقويم، نواتج التعلم","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تحليل علاقة"},{"id":54,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي مما يلي يمثل «تقويماً بديلاً»؟","options":["اختبار نهائي موحد لجميع المتدربين في القاعة","اختبار قصير في بداية الجلسة لتحديد المستوى","تقييم المشاريع والعروض الأدائية وملفات الإنجاز","استبيان رضا بعد كل جلسة تدريبية مكتملة"],"correctText":"تقييم المشاريع والعروض الأدائية وملفات الإنجاز","feedback":"التقويم البديل يشمل المشاريع والعروض وملفات الإنجاز، وهي أدوات تقيس الأداء الفعلي بعيداً عن الاختبارات التقليدية.","guiding_words":"تقويماً بديلاً، المشاريع، العروض الأدائية","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تمييز مفهوم"},{"id":55,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"كيف يتعامل المدرب مع نتائج التقويم التكويني؟","options":["بإصدار قرار نهائي بشأن المتدربين في نهاية البرنامج","بأرشفتها دون اتخاذ أي إجراء تصحيحي فوري","بمقارنة المتدربين ببعضهم لتحديد الأفضل بينهم","بتعديل التدريب فوراً وفق النتائج لتحسين الأداء"],"correctText":"بتعديل التدريب فوراً وفق النتائج لتحسين الأداء","feedback":"التكويني وظيفته التعديل الفوري للتدريب، فيستفيد المدرب من النتائج لتحسين الأداء مباشرة.","guiding_words":"نتائج التقويم التكويني، تعديل فوري","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"تحليل إجراء"},{"id":56,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما الشرط الأساسي لصلاحية «أداة التقويم»؟","options":["قياسها لما وُضعت لقياسه فعلاً وبدقة عالية","سهولة تطبيقها على المدرب وقلة جهد التصحيح","قلة تكلفتها المادية مقارنة بالأدوات الأخرى","حداثتها في الأدبيات التربوية المعاصرة فقط"],"correctText":"قياسها لما وُضعت لقياسه فعلاً وبدقة عالية","feedback":"الصلاحية تعني قياس الأداة لما وُضعت لقياسه فعلاً، فهي الشرط الأساسي لصحة نتائج التقويم.","guiding_words":"الشرط الأساسي، صلاحية الأداة، قياس ما وضعت له","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تحليل شرط"},{"id":57,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي مما يلي يمثل «تقويم الأداء» (Performance Assessment)؟","options":["اختبار ورقي لقياس المعرفة النظرية للمتدربين","ملاحظة المتدرب أثناء تنفيذ مهمة عملية فعلية","استبيان لقياس اتجاهات المتدربين نحو البرنامج","مقابلة لقياس الدافعية للتعلم والمشاركة الفعلية"],"correctText":"ملاحظة المتدرب أثناء تنفيذ مهمة عملية فعلية","feedback":"تقويم الأداء يراقب التنفيذ الفعلي للمهمة في سياق واقعي، فيقيس المهارة لا المعرفة.","guiding_words":"تقويم الأداء، Performance Assessment، مهمة عملية","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تمييز مفهوم"},{"id":58,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"كيف يضمن المدرب «موضوعية» تقويمه للأداء العملي؟","options":["بالاعتماد على انطباعه العام عن المتدرب وخبرته","بمقارنة المتدربين ببعضهم البعض في القاعة","باستخدام معايير (Rubrics) محددة مسبقاً وواضحة","بتكرار الملاحظة عدة مرات دون معايير محددة"],"correctText":"باستخدام معايير (Rubrics) محددة مسبقاً وواضحة","feedback":"معايير التقييم (Rubrics) تضمن الموضوعية والاتساق، فتقلل من تأثير الانطباع الشخصي للمدرب.","guiding_words":"موضوعية، الأداء العملي، Rubrics","context":"المجال الأول - المعيار 2 - المعيار الفرعي 2.3.2 - المؤشر 2.3.2","pattern":"تحليل ضمان"},{"id":59,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"ما الفرق بين «القياس» و«التقويم» في التدريب؟","options":["القياس كمي يصف الأداء والتقويم حكم على قيمته","القياس نوعي والتقويم كمي إحصائي دقيق","لا فرق بينهما وظيفياً في التدريب المهني","القياس يصف كمياً والتقويم يحكم على القيمة والأهمية"],"correctText":"القياس يصف كمياً والتقويم يحكم على القيمة والأهمية","feedback":"القياس يصف كمياً، والتقويم يحكم على القيمة والأهمية، فالقياس جزء من التقويم لا العكس.","guiding_words":"الفرق بين، القياس، التقويم","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 - المؤشر 1.3.2","pattern":"مقارنة مفاهيم"},{"id":60,"domain":"المعرفة المهنية","domainName":"المجال الأول — المعرفة المهنية","unit":"فهم أنواع التقويم وأساليبه وأدواته","level":"advanced","question":"أي مما يلي يمثل «أفضل ممارسة» في تقويم التدريب؟","options":["تنويع أدوات التقويم وفقاً للنواتج المستهدفة","الاعتماد على نوع واحد من التقويم في كل البرنامج","التركيز على التقويم الختامي فقط في نهاية البرنامج","إلغاء التقويم التكويني لتوفير الوقت في القاعة"],"correctText":"تنويع أدوات التقويم وفقاً للنواتج المستهدفة","feedback":"أفضل ممارسة هي تنويع الأدوات وفق النواتج المستهدفة، فيتكامل التكويني مع الختامي والبديل.","guiding_words":"أفضل ممارسة، تنويع أدوات التقويم، النواتج","context":"المجال الأول - المعيار 2 - المعيار الفرعي 1.3.2 و2.3.2","pattern":"تقييم ممارسات"}]
+</script>
+<script>
+const DEFAULT_BANK = JSON.parse(document.getElementById('bank-data').textContent);
+const PASS=55; const letters=['أ','ب','ج','د'];
+let BANK=DEFAULT_BANK.slice();
+let prefs=JSON.parse(localStorage.getItem('golden60_prefs')||'{}');
+let session=[], answers={}, cur=0, timer=null, timeLeft=60, qFontScale=1, sessionSize=60;
+let soundOn = prefs.sound !== false;
+function savePrefs(){localStorage.setItem('golden60_prefs',JSON.stringify(prefs));}
+function applyPrefs(){
+  const font=prefs.font||'Tajawal', fs=prefs.fs||16;
+  document.documentElement.style.setProperty('--font',font+',system-ui,sans-serif');
+  document.documentElement.style.setProperty('--fs',fs+'px');
+  document.querySelectorAll('#fontSel,#fontHome').forEach(el=>{if(el)el.value=font;});
+  document.querySelectorAll('#soundSel,#soundHome').forEach(el=>{if(el)el.checked=soundOn;});
+  if(prefs.timer) document.getElementById('timerSec').value=prefs.timer;
+}
+function shuffle(a){const x=a.slice();for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
+function balanceLetters(list){
+  const counts=[0,0,0,0];
+  list.forEach(q=>{
+    let best=0,min=counts[0];
+    for(let i=1;i<4;i++) if(counts[i]<min){min=counts[i];best=i;}
+    const opts=(q.options||[]).slice();
+    const ci=opts.indexOf(q.correctText);
+    if(ci<0){counts[best]++;return;}
+    [opts[ci],opts[best]]=[opts[best],opts[ci]];
+    q.options=opts; counts[best]++;
+  });
+}
+function buildSession(n){
+  sessionSize=n||BANK.length;
+  let picked=shuffle(BANK).slice(0, Math.min(sessionSize, BANK.length));
+  // keep id order option for full 60 sequential review? User asked shuffle - use shuffle
+  session=picked.map(q=>{
+    // For questions where we fixed letter د, preserve option order if full fixed bank order desired
+    // Still shuffle others then rebalance
+    return {...q, options:shuffle((q.options||[]).slice())};
+  });
+  balanceLetters(session);
+  answers={}; cur=0; renderCards();
+}
+function beep(){
+  if(!soundOn) return;
+  try{const ctx=new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);o.frequency.value=880;g.gain.value=0.05;o.start();
+    setTimeout(()=>{o.stop();ctx.close();},180);}catch(e){}
+}
+function showView(name){
+  ['home','exam','cards','bank','settings'].forEach(v=>{const el=document.getElementById('view-'+v); if(el) el.classList.toggle('hidden',v!==name);});
+  document.querySelectorAll('.nav button[data-view]').forEach(b=>b.classList.toggle('active',b.getAttribute('data-view')===name));
+  if(name==='bank') renderBank();
+  if(name==='cards') renderCards();
+}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.getAttribute('data-view'))));
+document.querySelectorAll('[data-fs]').forEach(b=>b.onclick=()=>{prefs.fs=+b.getAttribute('data-fs');savePrefs();applyPrefs();});
+document.getElementById('fontSel').onchange=e=>{prefs.font=e.target.value;savePrefs();applyPrefs();};
+document.getElementById('fontHome').onchange=e=>{prefs.font=e.target.value;savePrefs();applyPrefs();};
+document.getElementById('soundSel').onchange=e=>{soundOn=e.target.checked;prefs.sound=soundOn;savePrefs();};
+document.getElementById('soundHome').onchange=e=>{soundOn=e.target.checked;prefs.sound=soundOn;savePrefs();};
+document.getElementById('timerSec').onchange=e=>{prefs.timer=+e.target.value||60;savePrefs();};
+function timerDefault(){return +(prefs.timer||60);}
+function startQuestion(){
+  stopTimer();
+  document.getElementById('resultBox').classList.add('hidden');
+  document.getElementById('qBox').classList.remove('hidden');
+  const nb=document.getElementById('navBottom'); if(nb) nb.classList.remove('hidden');
+  timeLeft=timerDefault(); updateTimer();
+  timer=setInterval(()=>{timeLeft--;updateTimer();if(timeLeft<=0){beep();if(answers[cur]==null)answers[cur]={choice:null,status:'time'};goNext();}},1000);
+  renderMap(); renderQuestion();
+}
+function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
+function updateTimer(){const el=document.getElementById('timer');el.textContent=timeLeft;el.classList.toggle('warn',timeLeft<=10);}
+function renderMap(){
+  const m=document.getElementById('qMap');
+  m.innerHTML=session.map((_,i)=>{
+    const a=answers[i]; let cls=i===cur?'cur':'';
+    if(a) cls+=' '+(a.status==='ok'?'ok':a.status==='bad'?'bad':a.status==='time'?'time':'skip');
+    return `<button type="button" class="${cls}" data-i="${i}">${i+1}</button>`;
+  }).join('');
+  m.querySelectorAll('button').forEach(b=>b.onclick=()=>{cur=+b.dataset.i;startQuestion();});
+}
+function renderQuestion(){
+  const q=session[cur]; if(!q) return;
+  document.getElementById('qProgress').innerHTML=`سؤال ${cur+1} / ${session.length} <span class="chip">المجال الأول</span>`;
+  const prev=answers[cur];
+  const box=document.getElementById('qBox');
+  box.style.fontSize=(qFontScale*100)+'%';
+  let extra='';
+  if(prev && (prev.status==='ok'||prev.status==='bad')){
+    extra=`<div class="fb"><b>التوضيح:</b> ${q.feedback||''}<br><span class="muted">${q.context||''}</span>${q.guiding_words?`<br><b>كلمات مرشدة:</b> ${q.guiding_words}`:''}</div>`;
+  }
+  box.innerHTML=`<p class="qtext">${q.question}</p>
+    <div class="options">${(q.options||[]).map((o,i)=>`<div class="opt ${prev&&prev.choice===i?'selected':''}" data-i="${i}"><span class="key">${letters[i]}</span><span>${o}</span></div>`).join('')}</div>${extra}`;
+  box.querySelectorAll('.opt').forEach(el=>{
+    el.onclick=()=>{
+      const i=+el.dataset.i;
+      answers[cur]={choice:i,status:(q.options[i]===q.correctText)?'ok':'bad'};
+      renderMap(); renderQuestion();
+    };
+  });
+}
+function goNext(){stopTimer();if(answers[cur]==null)answers[cur]={choice:null,status:'skip'};if(cur<session.length-1){cur++;startQuestion();}else showResults();}
+function goPrev(){stopTimer();if(cur>0){cur--;startQuestion();}}
+document.getElementById('btnStart60').onclick=()=>{buildSession(60);showView('exam');startQuestion();};
+document.getElementById('btnStart40').onclick=()=>{buildSession(40);showView('exam');startQuestion();};
+document.getElementById('btnStart20').onclick=()=>{buildSession(20);showView('exam');startQuestion();};
+document.getElementById('btnShuffle').onclick=()=>{buildSession(sessionSize||60);alert('تم خلط جلسة جديدة.');};
+document.getElementById('btnPrev').onclick=()=>goPrev();
+document.getElementById('btnNext').onclick=()=>goNext();
+document.getElementById('btnFinish').onclick=()=>{stopTimer();showResults();};
+document.getElementById('btnHomeExam').onclick=()=>{stopTimer();showView('home');};
+document.getElementById('btnHomeCards').onclick=()=>showView('home');
+document.getElementById('btnRefreshCards').onclick=()=>renderCards();
+document.getElementById('btnAplus').onclick=()=>{qFontScale=Math.min(1.6,qFontScale+0.1);renderQuestion();};
+document.getElementById('btnAminus').onclick=()=>{qFontScale=Math.max(0.8,qFontScale-0.1);renderQuestion();};
+document.getElementById('btnCopy').onclick=()=>{
+  const q=session[cur]; if(!q) return;
+  const text=q.question+'\n'+(q.options||[]).map((o,i)=>letters[i]+') '+o).join('\n');
+  navigator.clipboard.writeText(text).then(()=>alert('تم النسخ دون الإجابة')).catch(()=>prompt('انسخ:',text));
+};
+document.getElementById('btnTTS').onclick=()=>{
+  const q=session[cur]; if(!q) return;
+  const u=new SpeechSynthesisUtterance(q.question+'. '+(q.options||[]).map((o,i)=>letters[i]+': '+o).join('. '));
+  u.lang='ar-SA'; speechSynthesis.cancel(); speechSynthesis.speak(u);
+};
+function showResults(){
+  stopTimer();
+  document.getElementById('qBox').classList.add('hidden');
+  const nb=document.getElementById('navBottom'); if(nb) nb.classList.add('hidden');
+  const box=document.getElementById('resultBox'); box.classList.remove('hidden');
+  let ok=0,bad=0,time=0,skip=0;
+  session.forEach((_,i)=>{const a=answers[i];if(!a||a.status==='skip')skip++;else if(a.status==='time')time++;else if(a.status==='ok')ok++;else bad++;});
+  const pct=Math.round(100*ok/session.length), pass=pct>=PASS;
+  box.innerHTML=`<h2 style="margin-top:0">نتيجة الاختبار</h2>
+    <div class="grid3">
+      <div class="stat"><b>${ok}</b><span class="muted">صحيح</span></div>
+      <div class="stat"><b>${bad}</b><span class="muted">خطأ</span></div>
+      <div class="stat"><b>${pct}%</b><span class="muted">${pass?'اجتياز':'لم يتحقق'} (${PASS}٪)</span></div>
+    </div>
+    <p class="muted">انتهى الوقت: ${time} · تخطّي: ${skip}</p>
+    <div class="toolbar">
+      <button class="btn primary" type="button" id="btnRetake">إعادة بخلط</button>
+      <button class="btn" type="button" id="btnExportReport" style="color:#1e293b;border-color:var(--line);background:#fff">تصدير التقرير</button>
+      ${pass?`<button class="btn" type="button" id="btnCert" style="color:#1e293b;border-color:var(--line);background:#fff">تحميل الشهادة</button>`:''}
+    </div>
+    <h3>مراجعة</h3>
+    ${session.map((q,i)=>{
+      const a=answers[i];
+      const st=!a?'تخطّي':a.status==='ok'?'صحيح':a.status==='bad'?'خطأ':a.status==='time'?'انتهى الوقت':'تخطّي';
+      const chosen=a&&a.choice!=null?q.options[a.choice]:'—';
+      return `<div style="border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0">
+        <b>س${i+1}</b> <span class="muted">— ${st}</span>
+        <p style="margin:6px 0">${q.question}</p>
+        <p class="muted">إجابتك: ${chosen}</p>
+        <p>الصحيحة: ${q.correctText||''}</p>
+        <p class="muted">${q.feedback||''}</p>
+      </div>`;
+    }).join('')}`;
+  document.getElementById('btnRetake').onclick=()=>{buildSession(sessionSize);startQuestion();};
+  document.getElementById('btnExportReport').onclick=exportReport;
+  const bc=document.getElementById('btnCert'); if(bc) bc.onclick=()=>downloadCert(pct);
+  renderMap();
+}
+function exportReport(){
+  let ok=session.filter((_,i)=>answers[i]&&answers[i].status==='ok').length;
+  const pct=Math.round(100*ok/session.length);
+  let t=`تقرير الستون الذهبية — المجال الأول\nالتاريخ: ${new Date().toLocaleString('ar-SA')}\nالنتيجة: ${ok}/${session.length} (${pct}%)\n\n`;
+  session.forEach((q,i)=>{const a=answers[i]; t+=`${i+1}) ${q.question}\nالصحيحة: ${q.correctText}\nالحالة: ${a?a.status:'skip'}\n\n`;});
+  downloadBlob(t,'تقرير_الستون_الذهبية.txt','text/plain;charset=utf-8');
+}
+function downloadCert(pct){
+  const name=prompt('اكتب اسمك للشهادة:',''); if(name==null) return;
+  document.getElementById('certName').textContent=name||'متدرّب';
+  document.getElementById('certScore').textContent=pct+'٪';
+  document.getElementById('certDate').textContent=new Date().toLocaleDateString('ar-SA');
+  html2canvas(document.getElementById('cert'),{scale:2,backgroundColor:'#fff'}).then(canvas=>{
+    const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download='شهادة_الستون_الذهبية.png'; a.click();
+  });
+}
+function renderCards(){
+  const list=session.length?session:BANK;
+  document.getElementById('cardsInfo').textContent=`عرض ${list.length} بطاقة.`;
+  const g=document.getElementById('cardsGrid');
+  g.innerHTML=list.map(q=>`<div class="flip"><div class="flip-inner">
+    <div class="face front"><h4>#${q.id} · ${q.unit||''}</h4><div>${q.question}</div></div>
+    <div class="face back"><h4>الإجابة</h4><div style="font-weight:700;margin-bottom:6px">${q.correctText||''}</div><div class="muted">${q.feedback||''}</div></div>
+  </div></div>`).join('');
+  g.querySelectorAll('.flip').forEach(el=>el.onclick=()=>el.classList.toggle('flipped'));
+}
+function bankExportPayload(list){
+  return {meta:{title:'الستون الذهبية — المجال الأول',exportedAt:new Date().toISOString(),count:list.length,passMark:PASS,preparedBy:'إعداد المهندس سمير حبيب بنتن'},
+    questions:list.map((q,i)=>({id:q.id||i+1,domain:q.domain||'المعرفة المهنية',unit:q.unit||'',level:q.level||'',question:q.question,options:q.options||[],correctText:q.correctText||'',feedback:q.feedback||'',guiding_words:q.guiding_words||'',context:q.context||'',pattern:q.pattern||''}))};
+}
+function downloadBlob(data,filename,type){
+  const blob=data instanceof Blob?data:new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type:type||'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+function exportBank(list,name){downloadBlob(bankExportPayload(list), name||'الستون_الذهبية_المجال_الأول.json','application/json');}
+document.getElementById('btnExportBank').onclick=()=>exportBank(BANK);
+document.getElementById('btnExportBankHome').onclick=()=>exportBank(BANK);
+document.getElementById('btnExportSession').onclick=()=>{if(!session.length) buildSession(60); exportBank(session,'جلسة_الستون_الذهبية.json');};
+function handleImport(file){
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      let list=Array.isArray(data)?data:(data.questions||[]);
+      BANK=list.map((q,i)=>({
+        id:q.id||i+1, domain:q.domain||'المعرفة المهنية', unit:q.unit||'', level:q.level||'',
+        question:q.question||'', options:(q.options||[]).map(o=>typeof o==='string'?o:(o.text||'')),
+        correctText:q.correctText||'', feedback:q.feedback||q.explainCorrect||'',
+        guiding_words:q.guiding_words||'', context:q.context||'', pattern:q.pattern||''
+      })).filter(q=>q.question&&q.options.length>=2);
+      buildSession(Math.min(60,BANK.length)); renderBank();
+      alert('تم استيراد '+BANK.length+' سؤالًا');
+    }catch(e){alert('فشل الاستيراد: '+e.message);}
+  };
+  reader.readAsText(file,'utf-8');
+}
+document.getElementById('importFile').onchange=e=>handleImport(e.target.files[0]);
+document.getElementById('importFileHome').onchange=e=>handleImport(e.target.files[0]);
+function renderBank(){
+  document.getElementById('bankInfo').textContent=`البنك: ${BANK.length} سؤالًا — المجال الأول (المعرفة المهنية)`;
+  document.getElementById('bankPreview').innerHTML=BANK.map(q=>`<div style="margin:6px 0;padding:6px 0;border-bottom:1px solid var(--line)">
+    <b>#${q.id}</b> ${q.question.substring(0,120)}${q.question.length>120?'…':''}
+  </div>`).join('');
+}
+applyPrefs(); buildSession(60);
+</script>
+</body>
+</html>
